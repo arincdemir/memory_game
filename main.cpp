@@ -3,15 +3,23 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QWidget>
+#include <QDir>
+#include <string>
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
+    string projectPath = "C:/Users/arinc/Documents/memory_game";
     QApplication a(argc, argv);
 
     QWidget *window = new QWidget;
     QPushButton *button1 = new QPushButton;
-    button1->setIcon(QIcon("/icon.png"));
-    button1->setIconSize(QSize(64, 64));
+    string iconPath = projectPath + "/icon.png";
+    QPixmap pixmap(iconPath.c_str());
+    QIcon ButtonIcon(pixmap);
+    button1->setIcon(ButtonIcon);
+    button1->setIconSize(pixmap.rect().size());
     QPushButton *button2 = new QPushButton("Two");
     QPushButton *button3 = new QPushButton("Three");
     QPushButton *button4 = new QPushButton("Four");
