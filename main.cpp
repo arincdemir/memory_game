@@ -5,8 +5,19 @@
 #include <QWidget>
 #include <QDir>
 #include <string>
+#include <iostream>
 
 using namespace std;
+
+class Card:QPushButton{
+public:
+    Card(){
+        connect(this, SIGNAL(clicked()), this, SLOT(buttonClicked()));
+    }
+public slots:
+    void buttonClicked(){
+    }
+};
 
 int main(int argc, char *argv[])
 {
@@ -31,6 +42,7 @@ int main(int argc, char *argv[])
     layout->addWidget(button3, 1, 0, 1, 2);
     layout->addWidget(button4, 2, 0);
     layout->addWidget(button5, 2, 1);
+
 
     window->show();
 
