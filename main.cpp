@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
             }else{
                 color = "green";
             }
-            ColorButton *randButton = new ColorButton(color, "X");
+            ColorButton *randButton = new ColorButton(color, "X", gl);
             QObject::connect(randButton, SIGNAL(clicked()), randButton, SLOT(change_color()));
             QObject::connect(randButton, SIGNAL(clicked()), gl, SLOT(check_colors()));
 
@@ -35,6 +35,9 @@ int main(int argc, char *argv[]){
     vb->addLayout(gl);
     QSpacerItem *si = new QSpacerItem(0, 30, QSizePolicy::Expanding, QSizePolicy::Expanding);
     vb->addSpacerItem(si);
+
+    //my codes
+    gl->reset();
 
     cw->setWindowTitle("Color Game");
     cw->resize(640, 480);
