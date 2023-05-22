@@ -2,14 +2,44 @@
 #include <QApplication>
 #include <QPushButton>
 #include <QGridLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QWidget>
-#include <QDir>
+#include <QObject>
+#include <QLabel>
+#include <QString>
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-class Card:QPushButton{
+class Game : public QObject{
+public:
+    int score;
+    int triesLeft;
+    QLabel *scoreLabel;
+    QLabel *triesLabel;
+
+    Game(QLabel *scoreLabel, QLabel *triesLabel) {
+        this->scoreLabel = scoreLabel;
+        this->triesLabel = triesLabel;
+        reset();
+    }
+
+    void reset() {
+        score = 0;
+        triesLeft = 50;
+        updateLabels();
+    }
+
+    void updateLabels() {
+        scoreLabel->setText("Score: " + QString::number(score));
+        triesLabel->setText("Tries Left: " + QString::number(triesLeft));
+    }
+};
+
+class Card : public QPushButton{
+
 public:
     Card(){
         connect(this, SIGNAL(clicked()), this, SLOT(buttonClicked()));
@@ -23,26 +53,24 @@ int main(int argc, char *argv[])
 {
     string projectPath = "C:/Users/arinc/Documents/memory_game";
     QApplication a(argc, argv);
-
     QWidget *window = new QWidget;
-    QPushButton *button1 = new QPushButton;
+
+    Card *card1 = new Card();
     string iconPath = projectPath + "/icon.png";
     QPixmap pixmap(iconPath.c_str());
     QIcon ButtonIcon(pixmap);
-    button1->setIcon(ButtonIcon);
-    button1->setIconSize(pixmap.rect().size());
-    QPushButton *button2 = new QPushButton("Two");
-    QPushButton *button3 = new QPushButton("Three");
-    QPushButton *button4 = new QPushButton("Four");
-    QPushButton *button5 = new QPushButton("Five");
+    card1->setIcon(ButtonIcon);
+    card1->setIconSize(pixmap.rect().size());
+
+    QLabel *scoreLabel = new QLabel("Hey");
+    QLabel *triesLabel = new QLabel("Ho");
 
     QGridLayout *layout = new QGridLayout(window);
-    layout->addWidget(button1, 0, 0);
-    layout->addWidget(button2, 0, 1);
-    layout->addWidget(button3, 1, 0, 1, 2);
-    layout->addWidget(button4, 2, 0);
-    layout->addWidget(button5, 2, 1);
+    layout->addWidget(scoreLabel, 0, 0);
+    layout->addWidget(triesLabel, 0, 1);
+    layout->addWidget(card1, 1, 0);
 
+    Game *game = new Game(scoreLabel, triesLabel);
 
     window->show();
 
