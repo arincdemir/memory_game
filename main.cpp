@@ -1,11 +1,14 @@
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QSpacerItem>
+#include <QtDebug>
 #include "colorbutton.h"
 #include "mytimer.h"
 #include "mygrid.h"
 
 int main(int argc, char *argv[]){
+
+    qDebug() << "Beginning";
     QApplication app(argc, argv);
     QWidget *cw = new QWidget; // main widget
     QVBoxLayout *vb = new QVBoxLayout(cw); // timer, grid and spaceritem
@@ -24,8 +27,9 @@ int main(int argc, char *argv[]){
                 color = "green";
             }
             ColorButton *randButton = new ColorButton(color, "X", gl);
-            QObject::connect(randButton, SIGNAL(clicked()), randButton, SLOT(change_color()));
-            QObject::connect(randButton, SIGNAL(clicked()), gl, SLOT(check_colors()));
+            //QObject::connect(randButton, SIGNAL(clicked()), randButton, SLOT(change_color()));
+            //QObject::connect(randButton, SIGNAL(clicked()), gl, SLOT(check_colors()));
+            QObject::connect(randButton, SIGNAL(clicked()), randButton, SLOT(pressed()));
 
             gl->addWidget(randButton, row, col, 1, 1);
 

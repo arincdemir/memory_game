@@ -1,11 +1,13 @@
 #include "colorbutton.h"
 #include "mygrid.h"
+#include <QtDebug>
 
 ColorButton::ColorButton(const QString& color,
                          const QString& text, MyGrid *grid,
                          QWidget* parent):
     QPushButton(text, parent)
 {
+    this->grid = grid;
     this->color = color;
     QPalette pal = palette();
     if(color == "blue"){
@@ -41,7 +43,18 @@ void ColorButton::change_color(){
 }
 
 void ColorButton::pressed() {
+    qDebug() << "Hey";
+    if(grid->state == zeroShown) {
+        showColor();
+        grid->state = oneShown;
+    }
+    else if (grid->state == oneShown) {
+        showColor();
+        grid->state = twoShown;
+    }
+    else if (grid->state == twoShown) {
 
+    }
 }
 
 void ColorButton::showDefaultColor(){

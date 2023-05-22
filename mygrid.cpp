@@ -6,6 +6,7 @@ using namespace std;
 
 MyGrid::MyGrid(QTimer *timer): QGridLayout(){
     this->timer = timer;
+    this->state = zeroShown;
 }
 
 
