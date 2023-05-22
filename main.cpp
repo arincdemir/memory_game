@@ -36,8 +36,8 @@ int main(int argc, char *argv[])
     layout->addWidget(scoreLabel, 0, 0);
     layout->addWidget(triesLabel, 0, 1);
 
-    for(int i = 0; i < 5; i++){
-        for(int j = 0; j < 6; j++){
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 5; j++){
             layout->addWidget(cards->at(i * 5 + j), i + 1, j);
         }
     }
