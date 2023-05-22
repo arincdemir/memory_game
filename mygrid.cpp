@@ -74,4 +74,24 @@ void MyGrid::processTwoShown(){
 void MyGrid::timerEvent(QTimerEvent *event){
     qDebug() << "timer event";
     killTimer(timerId);
+    ColorButton *first;
+    ColorButton *second;
+    for(int i = 0; i < this->count(); ++i){
+        ColorButton *widget = qobject_cast<ColorButton*>(this->itemAt(i)->widget());
+        if(widget->identifier == firstShownIdentifier) {
+            first = widget;
+            qDebug() << "Found First";
+        }
+        else if(widget->identifier == secondShownIdentifier) {
+            second = widget;
+            qDebug() << "Found Second";
+        }
+    }
+
+    first->showDefaultColor();
+    second->showDefaultColor();
+    first->open = false;
+    second->open = false;
+    state = zeroShown;
+
 }
