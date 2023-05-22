@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QLabel>
+#include "card.h"
 
 class Game : public QObject{
 public:

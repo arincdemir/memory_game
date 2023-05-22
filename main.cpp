@@ -10,6 +10,7 @@
 #include <QString>
 #include <string>
 #include <iostream>
+#include <vector>
 #include "card.h"
 #include "game.h"
 
@@ -21,24 +22,25 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     QWidget *window = new QWidget;
 
-
-
     QLabel *scoreLabel = new QLabel("Hey");
     QLabel *triesLabel = new QLabel("Ho");
-    QGridLayout *layout = new QGridLayout(window);
 
+    vector<Card*> *cards = new vector<Card *>();
     Game *game = new Game(scoreLabel, triesLabel);
+    for(int i = 0; i < 30; i++) {
+        cards->push_back(new Card(game));
+    }
 
-    Card *card1 = new Card(game);
-    string iconPath = projectPath + "/icon.png";
-    QPixmap pixmap(iconPath.c_str());
-    QIcon ButtonIcon(pixmap);
-    card1->setIcon(ButtonIcon);
-    card1->setIconSize(pixmap.rect().size());
+    QGridLayout *layout = new QGridLayout(window);
 
     layout->addWidget(scoreLabel, 0, 0);
     layout->addWidget(triesLabel, 0, 1);
-    layout->addWidget(card1, 1, 0);
+
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 6; j++){
+            layout->addWidget(cards->at(i * 5 + j), i + 1, j);
+        }
+    }
 
     window->show();
 
