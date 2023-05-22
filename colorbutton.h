@@ -10,12 +10,14 @@ class ColorButton : public QPushButton
 public:
     MyGrid *grid;
     ColorButton(const QString& color,
-                const QString& text, MyGrid *grid,
+                const QString& text, MyGrid *grid, int identifier,
                 QWidget* parent = 0);
     QString color;
     int id;
+    int identifier;
     void showColor();
     void showDefaultColor();
+    bool open;
 public slots:
     void change_color();
     void pressed();

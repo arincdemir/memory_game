@@ -3,6 +3,7 @@
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QTimer>
+#include <QTimerEvent>
 
 enum State {zeroShown, oneShown, twoShown};
 
@@ -16,6 +17,11 @@ public:
     MyGrid(QTimer* timer);
     QTimer* timer;
     void reset();
+    int firstShownIdentifier;
+    int secondShownIdentifier;
+    void processTwoShown();
+    int timerId;
+    void timerEvent(QTimerEvent *event);
 public slots:
     void check_colors();
 };

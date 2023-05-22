@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
             }else{
                 color = "green";
             }
-            ColorButton *randButton = new ColorButton(color, "X", gl);
+            ColorButton *randButton = new ColorButton(color, "X", gl, rand());
             //QObject::connect(randButton, SIGNAL(clicked()), randButton, SLOT(change_color()));
             //QObject::connect(randButton, SIGNAL(clicked()), gl, SLOT(check_colors()));
             QObject::connect(randButton, SIGNAL(clicked()), randButton, SLOT(pressed()));

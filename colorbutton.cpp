@@ -3,11 +3,13 @@
 #include <QtDebug>
 
 ColorButton::ColorButton(const QString& color,
-                         const QString& text, MyGrid *grid,
+                         const QString& text, MyGrid *grid, int identifier,
                          QWidget* parent):
     QPushButton(text, parent)
 {
+    this->identifier = identifier;
     this->grid = grid;
+    open = false;
     this->color = color;
     QPalette pal = palette();
     if(color == "blue"){
@@ -43,17 +45,26 @@ void ColorButton::change_color(){
 }
 
 void ColorButton::pressed() {
-    qDebug() << "Hey";
-    if(grid->state == zeroShown) {
-        showColor();
-        grid->state = oneShown;
-    }
-    else if (grid->state == oneShown) {
-        showColor();
-        grid->state = twoShown;
-    }
-    else if (grid->state == twoShown) {
+    qDebug() << "Button Pressed";
+    if(!open) {
+        if(grid->state == zeroShown) {
+            showColor();
+            open = true;
+            grid->firstShownIdentifier = identifier;
+            grid->state = oneShown;
+            grid->tries--;
+        }
+        else if (grid->state == oneShown) {
+            open = true;
+            showColor();
+            grid->secondShownIdentifier = identifier;
+            grid->state = twoShown;
+            grid->processTwoShown();
+            grid->tries--;
+        }
+        else if (grid->state == twoShown) {
 
+        }
     }
 }
 

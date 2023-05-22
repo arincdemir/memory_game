@@ -1,6 +1,7 @@
 #include "mygrid.h"
 #include "colorbutton.h"
 #include <vector>
+#include <QtDebug>
 
 using namespace std;
 
@@ -40,4 +41,37 @@ void MyGrid::reset(){
         widget->showDefaultColor();
         vect.erase(vect.begin() + index);
     }
+}
+
+void MyGrid::processTwoShown(){
+    qDebug() << "Processing Two Shown";
+
+    ColorButton *first;
+    ColorButton *second;
+    for(int i = 0; i < this->count(); ++i){
+        ColorButton *widget = qobject_cast<ColorButton*>(this->itemAt(i)->widget());
+        if(widget->identifier == firstShownIdentifier) {
+            first = widget;
+            qDebug() << "Found First";
+        }
+        else if(widget->identifier == secondShownIdentifier) {
+            second = widget;
+            qDebug() << "Found Second";
+        }
+    }
+    qDebug() << first->id;
+    qDebug() << second->id;
+    if(first->id == second->id) {
+        score += 2;
+        state = zeroShown;
+    }
+    else {
+        this->timerId = startTimer(2000);
+    }
+
+}
+
+void MyGrid::timerEvent(QTimerEvent *event){
+    qDebug() << "timer event";
+    killTimer(timerId);
 }
