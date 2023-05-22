@@ -1,4 +1,5 @@
 #include "game.h"
+#include "card.h"
 
 Game::Game(QLabel *scoreLabel, QLabel *triesLabel)
 {

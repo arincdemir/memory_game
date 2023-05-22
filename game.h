@@ -1,10 +1,11 @@
-#ifndef GAME_H
-#define GAME_H
-
 #include <QObject>
 #include <QWidget>
 #include <QLabel>
 #include "card.h"
+
+#ifndef GAME_H
+#define GAME_H
+
 
 class Game : public QObject{
 public:
