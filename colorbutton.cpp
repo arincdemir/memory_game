@@ -79,6 +79,30 @@ void ColorButton::showDefaultColor(){
 }
 
 void ColorButton::showColor() {
+    QColor theColor;
+    if (id==0) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(0, 255, 64);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    } else if (id == 1) {
+        theColor = QColor(255, 0, 0);
+    }
     QColor theColor = QColor(30 + id * 15, 30 + id * 15, 30 + id * 15);
     QPalette pal = palette();
     pal.setColor(QPalette::Button, theColor);
