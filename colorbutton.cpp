@@ -103,7 +103,7 @@ void ColorButton::showColor() {
     } else if (id == 1) {
         theColor = QColor(255, 0, 0);
     }
-    QColor theColor = QColor(30 + id * 15, 30 + id * 15, 30 + id * 15);
+    //QColor theColor = QColor(30 + id * 15, 30 + id * 15, 30 + id * 15);
     QPalette pal = palette();
     pal.setColor(QPalette::Button, theColor);
     setFlat(true);

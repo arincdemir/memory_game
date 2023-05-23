@@ -1,9 +1,10 @@
 #include <QApplication>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QSpacerItem>
 #include <QtDebug>
+#include <QLabel>
 #include "colorbutton.h"
-#include "mytimer.h"
 #include "mygrid.h"
 
 int main(int argc, char *argv[]){
@@ -12,8 +13,11 @@ int main(int argc, char *argv[]){
     QApplication app(argc, argv);
     QWidget *cw = new QWidget; // main widget
     QVBoxLayout *vb = new QVBoxLayout(cw); // timer, grid and spaceritem
-    MyTimer mt;
-    MyGrid *gl = new MyGrid(mt.timer);
+    MyGrid *gl = new MyGrid();
+    QLabel *scoreLabel = new QLabel("test");
+    QLabel *triesLabel = new QLabel("test");
+    QPushButton *resetButton = new QPushButton("test");
+    QHBoxLayout *statsLayout = new QHBoxLayout();
 
     for(int row=0; row<5; row++){
         for(int col=0; col<6; col++){
@@ -35,7 +39,10 @@ int main(int argc, char *argv[]){
 
         }
     }
-    vb->addWidget(mt.label);
+    statsLayout->addWidget(scoreLabel);
+    statsLayout->addWidget(triesLabel);
+    statsLayout->addWidget(resetButton);
+    vb->addLayout(statsLayout);
     vb->addLayout(gl);
     QSpacerItem *si = new QSpacerItem(0, 30, QSizePolicy::Expanding, QSizePolicy::Expanding);
     vb->addSpacerItem(si);

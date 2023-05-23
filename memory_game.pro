@@ -2,11 +2,9 @@ QT += widgets
 
 HEADERS += \
     colorbutton.h \
-    mygrid.h \
-    mytimer.h
+    mygrid.h
 
 SOURCES += \
     colorbutton.cpp \
     main.cpp \
-    mygrid.cpp \
-    mytimer.cpp
+    mygrid.cpp
