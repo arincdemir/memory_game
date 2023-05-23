@@ -16,10 +16,21 @@ Open the project in QT Creator and run it.
 We wrote this project in multiple files with one file serving only one purpose to make it easier to understand and debug.
 
 #### colorbutton.h
-Declerations and protocoles has been written in that.
+We created the function declarations and the following data fields:
+- `id` for determining the color of the button, and to be able to match them.
+- `identifier` that is random to be able to distinguish the buttons.
+- `open` to determine if back side of the card is shown.
+- `grid` as a reference to the actual game manager object MyGrid
 
 #### mygrid.h
-The variables about the layout of the grid is included in this file.
+We created the function declarations and the following data fields:
+- `score` to hold how many cards have been matched yet.
+- `tries` to hold how many tries the player has left.
+- `firstShownIdentifier` to determine which button is shown first.
+- `secondShownIdentifier` to determine which button is shown second.
+- `timerId` to be able to kill the timer that is created.
+- `scoreLabel` to hold and be able to make changes on the score label.
+- `triesLabel` to hold and be able to make changes on the tries label.
 
 #### colorbutton.cpp
 There is *pressed()* function. It behaves by the information that how many cards are open.
