@@ -22,6 +22,8 @@ public:
     void timerEvent(QTimerEvent *event);
     QLabel *scoreLabel;
     QLabel *triesLabel;
+    void winGame();
+    void loseGame();
 public slots:
     void reset();
 };

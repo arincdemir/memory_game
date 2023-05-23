@@ -2,6 +2,7 @@
 #include "colorbutton.h"
 #include <vector>
 #include <QtDebug>
+#include <QMessageBox>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ void MyGrid::reset(){
         int index = rand() % vect.size();
         ColorButton *widget = qobject_cast<ColorButton*>(this->itemAt(i)->widget());
         widget->id = vect.at(index);
+        widget->open = false;
         widget->showDefaultColor();
         vect.erase(vect.begin() + index);
     }
@@ -52,15 +54,38 @@ void MyGrid::processTwoShown(){
         state = zeroShown;
     }
     else {
-        this->timerId = startTimer(2000);
+        this->timerId = startTimer(1000);
     }
 
     triesLabel->setText("Tries Left: " + QString::number(tries));
 
     if(score == 15) {
-
+        winGame();
+    }
+    else if (tries == 49) {
+        loseGame();
     }
 
+}
+
+void MyGrid::loseGame(){
+    qDebug() << "Lose";
+    QMessageBox *msgBox = new QMessageBox();
+    msgBox->setWindowTitle("You lose!");
+    msgBox->setText("Nice try though. Your score was: " + QString::number(score));
+    msgBox->setStandardButtons(QMessageBox::Close);
+    msgBox->show();
+    reset();
+}
+
+void MyGrid::winGame(){
+    qDebug() << "Win";
+    QMessageBox *msgBox = new QMessageBox();
+    msgBox->setWindowTitle("You win!");
+    msgBox->setText("Yuppiii! You still had " + QString::number(tries) + " tries left. My god!");
+    msgBox->setStandardButtons(QMessageBox::Close);
+    msgBox->show();
+    reset();
 }
 
 void MyGrid::timerEvent(QTimerEvent *event){
