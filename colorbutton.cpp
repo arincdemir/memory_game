@@ -2,10 +2,9 @@
 #include "mygrid.h"
 #include <QtDebug>
 
-ColorButton::ColorButton(const QString& color,
-                         const QString& text, MyGrid *grid, int identifier,
+ColorButton::ColorButton(MyGrid *grid, int identifier,
                          QWidget* parent):
-    QPushButton(text, parent)
+    QPushButton(parent)
 {
     this->identifier = identifier;
     this->grid = grid;
@@ -17,25 +16,6 @@ ColorButton::ColorButton(const QString& color,
     }else if(color == "red"){
         pal.setColor(QPalette::Button, QColor(Qt::red));
     }else{
-        pal.setColor(QPalette::Button, QColor(Qt::green));
-    }
-    setFlat(true);
-    setAutoFillBackground(true);
-    setPalette(pal);
-    update();
-}
-
-void ColorButton::change_color(){
-    QPalette pal = palette();
-    int color = rand() % 3;
-    if(color == 0){
-        this->color = "blue";
-        pal.setColor(QPalette::Button, QColor(Qt::blue));
-    }else if(color == 1){
-        this->color = "red";
-        pal.setColor(QPalette::Button, QColor(Qt::red));
-    }else{
-        this->color = "green";
         pal.setColor(QPalette::Button, QColor(Qt::green));
     }
     setFlat(true);
