@@ -5,7 +5,9 @@
 
 using namespace std;
 
-MyGrid::MyGrid(): QGridLayout(){
+MyGrid::MyGrid(QLabel *scoreLabel, QLabel *triesLabel): QGridLayout(){
+    this->scoreLabel = scoreLabel;
+    this->triesLabel = triesLabel;
     this->state = zeroShown;
 }
 

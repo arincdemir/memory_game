@@ -3,6 +3,7 @@
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QTimerEvent>
+#include <QLabel>
 
 enum State {zeroShown, oneShown, twoShown};
 
@@ -13,13 +14,15 @@ public:
     State state;
     int score;
     int tries;
-    MyGrid();
+    MyGrid(QLabel *scoreLabel, QLabel *triesLabel);
     void reset();
     int firstShownIdentifier;
     int secondShownIdentifier;
     void processTwoShown();
     int timerId;
     void timerEvent(QTimerEvent *event);
+    QLabel *scoreLabel;
+    QLabel *triesLabel;
 };
 
 
