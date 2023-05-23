@@ -1,4 +1,4 @@
-# AdvCalc Interpreter
+# Memory Game
 Made by:
 
 - Arınç Demir
@@ -10,7 +10,7 @@ For our Cmpe230 (Systems Programming) course project 3.
 To create a classic memory game which includes matching the cards having the same colors. 
 
 ## Usage
-In QT Creator, we run the C++ code and game starts. 
+Open the project in QT Creator and run it. 
 
 ## Implementation
 We wrote this project in multiple files with one file serving only one purpose to make it easier to understand and debug.
