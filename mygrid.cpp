@@ -13,7 +13,7 @@ MyGrid::MyGrid(QLabel *scoreLabel, QLabel *triesLabel): QGridLayout(){
 
 
 void MyGrid::reset(){
-    vector<int> vect{ 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15};
+    vector<int> vect{ 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14};
     for(int i = 0; i < this->count(); ++i){
         int index = rand() % vect.size();
         ColorButton *widget = qobject_cast<ColorButton*>(this->itemAt(i)->widget());
