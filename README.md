@@ -32,8 +32,8 @@ We initialized all buttons, text, layout etc.
 We checked whether the color match or not in here. Also, the *reset()* function which enables us start all over again is in here.
 
 ## Difficulties Encountered
-It was hard to discover QT library in general.
-
+- It was hard to discover the QT library in general. The documentation is hard to understand, and it is hard to find what you are looking for.
+- The ui programming prodigm is quite different than the coding we were used to. It took some time to understand and adapt to it.
 
 ## Conclusion
-
+It was a fun but challenging project. It was not challenging because it took a long time, but it was hard to understand the ui design concept and it was hard to find how to do things in QT. Overall, we learned a lot about ui creation and game making.
