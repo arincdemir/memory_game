@@ -16,7 +16,8 @@ int main(int argc, char *argv[]){
     QLabel *scoreLabel = new QLabel("test");
     QLabel *triesLabel = new QLabel("test");
     MyGrid *grid = new MyGrid(scoreLabel, triesLabel);
-    QPushButton *resetButton = new QPushButton("test");
+    QPushButton *resetButton = new QPushButton("Reset");
+    QObject::connect(resetButton, SIGNAL(clicked()), grid, SLOT(reset()));
     QHBoxLayout *statsLayout = new QHBoxLayout();
 
     for(int row=0; row<5; row++){
