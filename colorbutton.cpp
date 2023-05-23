@@ -111,6 +111,7 @@ void ColorButton::showColor() {
     } else if (id == 14) {
         theColor = QColor(220, 190, 255);
     }
+
     QPalette pal = palette();
     pal.setColor(QPalette::Button, theColor);
     setFlat(true);
