@@ -25,6 +25,7 @@ We created the function declarations and the following data fields:
 #### mygrid.h
 We created the function declarations and the following data fields:
 - `score` to hold how many cards have been matched yet.
+- `state` holding how many cards are open right now
 - `tries` to hold how many tries the player has left.
 - `firstShownIdentifier` to determine which button is shown first.
 - `secondShownIdentifier` to determine which button is shown second.
@@ -33,14 +34,18 @@ We created the function declarations and the following data fields:
 - `triesLabel` to hold and be able to make changes on the tries label.
 
 #### colorbutton.cpp
-There is *pressed()* function. It behaves by the information that how many cards are open.
-We chose 15 distinct colors to match. We wrote them in RGB form.
-
-#### main.cpp
-We initialized all buttons, text, layout etc. 
+- `pressed()` updates the cards and grid depending on `state` of the grid. Calls `processTwoShown()` if two cards are shown.
+- `showDefaultColor()` shows the card in the default color, which is black
+- `showColor()` shows the card in the color defined by its `id`, call this when card is opened.
 
 #### mygrid.cpp
-We checked whether the color match or not in here. Also, the *reset()* function which enables us start all over again is in here.
+- `reset()` resets the game states. Called in the program beginning and when the reset button is pressed.
+- `processTwoShown()` called when two buttons are opened on the screen. Gets the two buttons, and checks if they are the same. If not, a timer is created.
+- `loseGame()` called when the player runs out of tries. Pops up a message box and resets the game.
+- `winGame()` called when all cards are open. Pops up a message box and resets the game.
+- `timerEvent()` is called by the timer created in processTwoShown. Closes the cards.
+#### main.cpp
+We initialized all buttons, text, layout and connected them here. After that, `app.exec()` is called for the main ui loop. 
 
 ## Difficulties Encountered
 - It was hard to discover the QT library in general. The documentation is hard to understand, and it is hard to find what you are looking for.
