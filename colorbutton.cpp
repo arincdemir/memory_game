@@ -2,15 +2,14 @@
 #include "mygrid.h"
 #include <QtDebug>
 
-ColorButton::ColorButton(MyGrid *grid, int identifier,
-                         QWidget* parent):
-    QPushButton(parent)
-{
+ColorButton::ColorButton(MyGrid *grid, int identifier, QWidget* parent): QPushButton(parent){
+    // get the data fields from the constructor
     this->identifier = identifier;
     this->grid = grid;
     open = false;
 }
 
+// enter this function when button is pressed
 void ColorButton::pressed() {
     qDebug() << "Button Pressed";
     if(!open) {
@@ -35,6 +34,7 @@ void ColorButton::pressed() {
     }
 }
 
+// show the default color, which is black when button is not pressed
 void ColorButton::showDefaultColor(){
     QColor theColor = QColor(0, 0, 0);
     QPalette pal = palette();
@@ -45,6 +45,7 @@ void ColorButton::showDefaultColor(){
     update();
 }
 
+// show the distinguished color of the button depending on its id
 void ColorButton::showColor() {
     QColor theColor;
     if (id==0) {
