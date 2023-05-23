@@ -15,7 +15,6 @@ public:
     int score;
     int tries;
     MyGrid(QLabel *scoreLabel, QLabel *triesLabel);
-    void reset();
     int firstShownIdentifier;
     int secondShownIdentifier;
     void processTwoShown();
@@ -23,6 +22,8 @@ public:
     void timerEvent(QTimerEvent *event);
     QLabel *scoreLabel;
     QLabel *triesLabel;
+public slots:
+    void reset();
 };
 
 
