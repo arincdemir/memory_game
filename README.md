@@ -7,7 +7,7 @@ Made by:
 For our Cmpe230 (Systems Programming) course project 3.
 
 ## Purpose
-To create a classic memory game which includes matching the cards having the same colors. 
+To create a classic memory game which includes matching the cards having the same colors using QT and C++.
 
 ## Usage
 Open the project in QT Creator and run it. 
