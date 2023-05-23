@@ -19,7 +19,6 @@ void ColorButton::pressed() {
             open = true;
             grid->firstShownIdentifier = identifier;
             grid->state = oneShown;
-            grid->tries--;
         }
         else if (grid->state == oneShown) {
             open = true;
