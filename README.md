@@ -32,6 +32,7 @@ We initialized all buttons, text, layout etc.
 We checked whether the color match or not in here. Also, the *reset()* function which enables us start all over again is in here.
 
 ## Difficulties Encountered
+It was hard to discover QT library in general.
 
 
 ## Conclusion
