@@ -21,6 +21,11 @@ void MyGrid::reset(){
         widget->showDefaultColor();
         vect.erase(vect.begin() + index);
     }
+
+    score = 0;
+    scoreLabel->setText("Score: " + QString::number(score));
+    tries = 50;
+    triesLabel->setText("Tries Left: " + QString::number(tries));
 }
 
 void MyGrid::processTwoShown(){
@@ -42,11 +47,18 @@ void MyGrid::processTwoShown(){
     qDebug() << first->id;
     qDebug() << second->id;
     if(first->id == second->id) {
-        score += 2;
+        score += 1;
+        scoreLabel->setText("Score: " + QString::number(score));
         state = zeroShown;
     }
     else {
         this->timerId = startTimer(2000);
+    }
+
+    triesLabel->setText("Tries Left: " + QString::number(tries));
+
+    if(score == 15) {
+
     }
 
 }
