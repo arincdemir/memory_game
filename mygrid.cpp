@@ -62,7 +62,7 @@ void MyGrid::processTwoShown(){
     if(score == 15) {
         winGame();
     }
-    else if (tries == 49) {
+    else if (tries == 0) {
         loseGame();
     }
 
@@ -81,8 +81,11 @@ void MyGrid::loseGame(){
 void MyGrid::winGame(){
     qDebug() << "Win";
     QMessageBox *msgBox = new QMessageBox();
+
     msgBox->setWindowTitle("You win!");
     msgBox->setText("Yuppiii! You still had " + QString::number(tries) + " tries left. My god!");
+
+
     msgBox->setStandardButtons(QMessageBox::Close);
     msgBox->show();
     reset();
