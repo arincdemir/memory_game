@@ -25,8 +25,9 @@ void ColorButton::pressed() {
             showColor();
             grid->secondShownIdentifier = identifier;
             grid->state = twoShown;
-            grid->processTwoShown();
             grid->tries--;
+            grid->processTwoShown();
+
         }
         else if (grid->state == twoShown) {
 
